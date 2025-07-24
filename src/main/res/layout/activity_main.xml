@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -19,9 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="1"
-        android:layout_marginBottom="120dp"
-        android:elevation="4dp">
+        android:rowCount="1">
         <Button
             android:id="@+id/btn_play"
             android:layout_width="0dp"
@@ -38,10 +35,7 @@
             android:text="@string/music_list"
             />
     </GridLayout>
-<!--    <fragment-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:name="com.example.mymusic.MusicPlayerFragment"/>-->
+
     <FrameLayout
         android:id="@+id/mian_fragment"
         android:layout_width="match_parent"
