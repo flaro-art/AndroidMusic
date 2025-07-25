@@ -11,34 +11,51 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:text="@string/music_player"
-        android:background="#778899"
-        android:textColor="@color/white"
-        android:layout_marginBottom="5dp"/>
-    <GridLayout
+        android:textColor="@color/black"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/vp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="1">
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/play_music"
+        android:id="@+id/bottom_menu"
+        app:menu="@menu/bottom_nva_menu"
+        app:labelVisibilityMode="labeled"/>
 
-            />
-        <Button
-            android:id="@+id/btn_list"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="@string/music_list"
-            />
-    </GridLayout>
+<!--    <GridLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:columnCount="2"-->
+<!--        android:rowCount="1">-->
+<!--        <Button-->
+<!--            android:id="@+id/btn_play"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:text="@string/play_music"-->
 
-    <FrameLayout
-        android:id="@+id/mian_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+<!--            />-->
+<!--        <Button-->
+<!--            android:id="@+id/btn_list"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:text="@string/music_list"-->
+<!--            />-->
+<!--    </GridLayout>-->
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/mian_fragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
 
 </LinearLayout>
