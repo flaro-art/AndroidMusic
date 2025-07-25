@@ -27,7 +27,7 @@ public class MusicListFragment extends Fragment {
     private List<PlayableMusicFile> playableMusicFiles;
     private MusicAdapter musicArrayAdapter;
     private ListView listView;
-
+    private MainActivity mainActivity;
     private String mParam1;
     private String mParam2;
 
@@ -47,7 +47,6 @@ public class MusicListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         playableMusicFiles = FileUtils.loadMusicWithMediaStore(requireActivity());
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -61,8 +60,13 @@ public class MusicListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_music_list, container, false);
         musicArrayAdapter = new MusicAdapter(requireActivity(), playableMusicFiles);
+        mainActivity = new MainActivity();
         listView = view.findViewById(R.id.music_list_view);
         listView.setAdapter(musicArrayAdapter);
+        listView.setOnItemClickListener((parent, view1, position, id) -> {
+
+            mainActivity.playMusic(playableMusicFiles.get(position));
+        });
 
         return view;
     }

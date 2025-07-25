@@ -24,6 +24,7 @@ import utils.FileUtils;
 
 
 public class  MusicPlayerFragment extends Fragment implements View.OnClickListener {
+    private MainActivity mainActivity;
     private TextView playView;
     private Button playButton;
     private String musicName;
@@ -53,16 +54,6 @@ public class  MusicPlayerFragment extends Fragment implements View.OnClickListen
         return fragment;
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//
-//    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +79,10 @@ public class  MusicPlayerFragment extends Fragment implements View.OnClickListen
         View view = inflater.inflate(R.layout.fragment_music_player, container, false);
         playView = view.findViewById(R.id.music_name);
         playView.setText(musicName);
-        mediaPlayer = new MediaPlayer();
+        mainActivity = (MainActivity) getActivity();
+        if (mainActivity!=null){
+            mediaPlayer = mainActivity.mediaPlayer;
+        }
         try {
             mediaPlayer.setDataSource(musicPath);
             mediaPlayer.prepare();
@@ -150,11 +144,5 @@ public class  MusicPlayerFragment extends Fragment implements View.OnClickListen
                 throw new RuntimeException(e);
             }
         }
-    }
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mediaPlayer.stop();
-        mediaPlayer.reset();
     }
 }
